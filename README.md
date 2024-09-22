@@ -1,1 +1,3 @@
-## Gemini Ai Chatbot 
+# Gemini Ai Chatbot ..
+
+![alt text](image.png)

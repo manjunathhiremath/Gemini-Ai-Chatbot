@@ -46,5 +46,16 @@ def embedding_model_response(input_text):
     embedding_list = embedding['embedding']
     return embedding_list
 
-output = embedding_model_response("who is Modi")
+# output = embedding_model_response("who is Modi")
+# print(output)
+
+# Ask me Anything Section ...
+def ask_me_anything(user_prompt):
+    gemini__pro_model = genai.GenerativeModel("gemini-1.5-flash")
+    response = gemini__pro_model.generate_content(user_prompt)
+    result = response.text
+    return result
+
+# For testing
+output = ask_me_anything("what is machine learning")
 print(output)

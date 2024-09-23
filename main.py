@@ -5,7 +5,8 @@ from streamlit_option_menu import option_menu
 
 from utills import (load_gemini_pro_model ,
                     gemini_pro_vision_response,
-                    embedding_model_response)
+                    embedding_model_response,
+                    ask_me_anything)
 
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
@@ -101,3 +102,14 @@ if selected == "Embedded Text":
         response = embedding_model_response(input_text)
         st.markdown(response)
 
+# Ask Me Anything 
+
+if selected == "Ask Me Anything":
+    st.title("🙋‍♂️ Ask Me Any Question .")
+
+    # Text box to enter prompt 
+    user_input = st.text_area(label="",placeholder="Ask Me Any Question ...")
+
+    if st.button("Get an Answer"):
+        response = ask_me_anything(user_input)
+        st.markdown(response)

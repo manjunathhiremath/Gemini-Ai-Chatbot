@@ -3,7 +3,9 @@ from PIL import Image
 import streamlit as st
 from streamlit_option_menu import option_menu
 
-from utills import (load_gemini_pro_model ,gemini_pro_vision_response)
+from utills import (load_gemini_pro_model ,
+                    gemini_pro_vision_response,
+                    embedding_model_response)
 
 
 working_dir = os.path.dirname(os.path.abspath(__file__))
@@ -19,7 +21,8 @@ st.set_page_config(
 
 with st.sidebar:
     selected =option_menu(menu_title= "  Gemini AI Chatbot",
-                        options=["Chatbot","Image Captioning","Embedded Text",
+                        options=["Chatbot","Image Captioning",
+                                 "Embedded Text",
                                  "Ask Me Anything"],
                         menu_icon="robot",icons=['chat-dots-fill','image-fill',
                                                  'textarea-t',
@@ -87,5 +90,14 @@ if selected == "Image Captioning":
         with col2:
             st.info(caption)
 
+# Text embeding Section ..
+if selected == "Embedded Text":
+    st.title("🆎 Text Embedding ")
 
+    # Input text area ..
+    input_text = st.text_area(label="",placeholder="Enter the text to get the embedding")
+
+    if st.button("Get Embedding"):
+        response = embedding_model_response(input_text)
+        st.markdown(response)
 

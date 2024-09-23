@@ -34,3 +34,17 @@ def gemini_pro_vision_response(prompt,image):
 # output = gemini_pro_vision_response(prompt, image)
 
 # print(output)
+
+# For Text Embedding 
+def embedding_model_response(input_text):
+    embedding_model = "models/embedding-001"
+    embedding = genai.embed_content(
+        model = embedding_model,
+        content = input_text,
+        task_type = "retrieval_document"
+    )
+    embedding_list = embedding['embedding']
+    return embedding_list
+
+output = embedding_model_response("who is Modi")
+print(output)

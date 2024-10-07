@@ -2,6 +2,9 @@
 
 ![alt text](image.png)
 
+## Here is the user interface [Click here to try this chatbot...](https://gemini-chatbot15.streamlit.app/)
+![alt text](web_app.png)
+
 ## Commands
 
 1. create a new virtual environment  
